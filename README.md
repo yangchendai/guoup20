@@ -17,12 +17,7 @@
 - **CSS**：用於網站的樣式和視覺效果。
 - **JavaScript**：用於增強互動性，例如按鈕點擊功能。
 
-## 安裝
 
-1. **下載此專案**：
-   您可以使用以下指令將此專案克隆到本地端：
-   ```bash
-   git clone https://github.com/your-username/resume-website.git
 
 ## 架構與流程圖
 ![image](frontend/簡報1.jpg)
