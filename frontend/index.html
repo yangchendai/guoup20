@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>履歷網站</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+    .content {
+      margin: 15px 0;
+    }
+    .content p {
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>履歷網站</h1>
+
+    <form id="resumeForm">
+      <!-- Basic Info -->
+      <div class="content">
+        <h2 class="section-title">基本資料</h2>
+        <div class="form-group">
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" placeholder="請輸入姓名" required>
+        </div>
+        <div class="form-group">
+          <label for="email">電子郵件</label>
+          <input type="email" id="email" name="email" placeholder="請輸入電子郵件" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">電話</label>
+          <input type="tel" id="phone" name="phone" placeholder="請輸入電話" required>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="content">
+        <h2 class="section-title">學歷</h2>
+        <div class="form-group">
+          <label for="education">學校名稱</label>
+          <input type="text" id="education" name="education" placeholder="請輸入學校名稱" required>
+        </div>
+        <div class="form-group">
+          <label for="eduYears">學習年限</label>
+          <input type="text" id="eduYears" name="eduYears" placeholder="例如：2020 - 2024" required>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="content">
+        <h2 class="section-title">經歷</h2>
+        <div class="form-group">
+          <label for="experience">經歷內容</label>
+          <textarea id="experience" name="experience" placeholder="請輸入經歷" rows="4" required></textarea>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="content">
+        <h2 class="section-title">技能</h2>
+        <div class="form-group">
+          <input type="text" id="skills" name="skills" placeholder="請輸入技能" required>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="content">
+        <h2 class="section-title">專案</h2>
+        <div class="form-group">
+          <textarea id="projects" name="projects" placeholder="請輸入專案描述" rows="4" required></textarea>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">儲存並查看履歷</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('resumeForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const education = document.getElementById('education').value;
+      const eduYears = document.getElementById('eduYears').value;
+      const experience = document.getElementById('experience').value;
+      const skills = document.getElementById('skills').value.split(',').map(skill => skill.trim());
+      const projects = document.getElementById('projects').value;
+
+      // Create a new window to display the saved data
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write('<h1>履歷網站</h1>');
+      newWindow.document.write(`<h2>基本資料</h2><p>姓名: ${name}</p><p>電子郵件: ${email}</p><p>電話: ${phone}</p>`);
+      newWindow.document.write(`<h2>學歷</h2><p>學校名稱: ${education}</p><p>學習年限: ${eduYears}</p>`);
+      newWindow.document.write(`<h2>經歷</h2><p>${experience}</p>`);
+      newWindow.document.write(`<h2>技能</h2><p>${skills.join(', ')}</p>`);
+      newWindow.document.write(`<h2>專案</h2><p>${projects}</p>`);
+    });
+  </script>
+
+</body>
+</html>
