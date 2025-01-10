@@ -141,7 +141,6 @@
       const eduYears = document.getElementById('eduYears').value;
       const experience = document.getElementById('experience').value;
       const skills = document.getElementById('skills').value.split(',').map(skill => skill.trim());
-      const projects = document.getElementById('projects').value;
 
       // Create a new window to display the saved data
       const newWindow = window.open('', '_blank');
@@ -150,7 +149,6 @@
       newWindow.document.write(`<h2>學歷</h2><p>學校名稱: ${education}</p><p>學習年限: ${eduYears}</p>`);
       newWindow.document.write(`<h2>經歷</h2><p>${experience}</p>`);
       newWindow.document.write(`<h2>技能</h2><p>${skills.join(', ')}</p>`);
-      newWindow.document.write(`<h2>專案</h2><p>${projects}</p>`);
     });
   </script>
 
